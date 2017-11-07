@@ -3,11 +3,20 @@
 
 
 # DECLARE AGES : INTEGER
-ages= [9,14,15,16,16,4,15,17,18,19]
 
+ages = []
+for p in range (0,10):
+    num=int(input("Enter Num between 0 and 10"))
+    while num < 0 or num > 10:
+        print("ERROR NOT VALID SILLY")
+        num = int(input("Enter Num between 0 and 10"))
+
+    ages.append(num)
 
 for index in range (0,10):
     print(ages[index])
+
+
 
 
 for index in range (0,10):
