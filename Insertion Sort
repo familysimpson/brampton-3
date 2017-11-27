@@ -1,0 +1,43 @@
+Module Module1
+    Dim insertion(0 To 9) As Integer
+
+
+    Sub Main()
+
+        For x = 1 To 9
+            Console.Write("Enter Number: ")
+            insertion(x) = Console.ReadLine
+        Next
+
+
+        Call Insertionsort(insertion)
+
+        For j = 1 To insertion.Length - 1
+            Console.WriteLine(insertion(j))
+        Next
+
+        Console.ReadLine()
+    End Sub
+
+    Sub Insertionsort(ByRef insertion() As Integer)
+        Dim insertitem As Integer
+        Dim currentitem As Integer
+        Dim i As Integer
+
+        For i = 2 To insertion.Length - 1
+
+
+            insertitem = insertion(i)
+            currentitem = i - 1
+            While (insertion(currentitem) > insertitem) And (currentitem > 0)
+                insertion(currentitem + 1) = insertion(currentitem)
+                currentitem = currentitem - 1
+            End While
+            insertion(currentitem + 1) = insertitem
+
+
+
+        Next
+    End Sub
+
+End Module
