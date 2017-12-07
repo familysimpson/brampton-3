@@ -1,0 +1,94 @@
+Module Module1
+    Dim count As Integer
+    Dim counter2 As Integer
+    Dim namearray(0 To 3) As String
+    Dim num1 As Integer
+    Dim num2 As Integer
+    Dim exitchar As Char
+
+    Sub Main()
+        'FOUR TEAMS, PARAS GALA-SHAH, 07/12/2017
+
+        Do Until exitchar = "h"
+            For i = 0 To 3
+                Console.Write("Enter a team Name: ")
+                namearray(i) = Console.ReadLine
+            Next
+
+
+            num1 = Rnd() * 4
+            Do Until Not num1
+                num2 = Rnd() * 4
+            Loop
+
+            Console.WriteLine(namearray(num1))
+            Console.WriteLine(namearray(num2))
+
+
+
+            Call counter(count, counter2)
+            Console.WriteLine(count)
+            Console.WriteLine(counter2)
+
+
+            If count > counter2 Then
+                Console.WriteLine(namearray(num1) & "Wins")
+            ElseIf counter2 > counter2 Then
+                Console.WriteLine(namearray(num2) & "Wins")
+            ElseIf count = counter2 Then
+                Console.WriteLine(namearray(num1) & "and"(namearray(num2) & "Draw"))
+            End If
+
+
+            Console.WriteLine(" if h is pressed then you will exit")
+            Console.ReadLine()
+
+            If exitchar = "h" Then
+                End
+            End If
+
+        Loop
+    End Sub
+
+    Sub counter(ByRef count As Integer, ByRef counter2 As Integer)
+
+        Dim guess As Integer
+        Dim randomnum2 As Integer
+        Dim randomnum As Integer
+        Dim guess2 As Integer
+
+
+        count = 1
+        counter2 = 1
+
+
+
+        randomnum = (Rnd() * 9) + 1
+        Do
+            Console.WriteLine("Guess this random number from 1-10")
+            guess = Console.ReadLine()
+
+            If randomnum <> guess Then
+                Console.WriteLine("Better Luck Next Time!")
+                count = count + 1
+            End If
+        Loop Until guess = randomnum
+
+        Console.WriteLine(namearray(num1) & " took " & count & " times ")
+
+        randomnum2 = (Rnd() * 9) + 1
+        Do
+            Console.WriteLine("Guess this random number from 1-10")
+            guess2 = Console.ReadLine()
+
+            If randomnum <> guess2 Then
+                Console.WriteLine("Better Luck Next Time!")
+                counter2 = counter2 + 1
+            End If
+        Loop Until guess2 = randomnum2
+
+        Console.WriteLine(namearray(num2) & " took " & counter2 & " times ")
+
+
+    End Sub
+End Module
