@@ -1,0 +1,64 @@
+Module Module1
+    'Paras Gala-Shah , Jan Assessment, 05/01/18  
+    Structure PizzaOrder
+        Dim no As Integer
+        Dim base As String
+        Dim topping() As String
+
+    End Structure
+    Sub Main()
+
+
+
+
+        Dim choice As String
+        Dim again As String = ""
+        Dim topcount As Integer = 0
+        Dim index As Integer
+        Dim shopopen As Boolean = True
+        Dim endorder As Boolean = False
+        Dim toppings(9, 1) As String
+        Dim base As Char
+
+        For i = 0 To 9
+            toppings(i, 0) = 10
+        Next
+
+
+        toppings(0, 0) = "Cheese"
+        toppings(1, 0) = "Ham"
+        toppings(2, 0) = "pepperoni"
+        toppings(3, 0) = "Mushroom"
+        toppings(4, 0) = "Cherry Tomatoes"
+        toppings(5, 0) = "Chicken"
+        toppings(6, 0) = "Peppers"
+        toppings(7, 0) = "Olives"
+        toppings(8, 0) = "Jalapenos"
+
+
+
+        For index = 0 To 9
+            Console.WriteLine(index & "" & toppings(index, 0))
+        Next
+
+
+        Do Until base = "t" Or "p" Or "T" Or "P"
+            Console.WriteLine("Do you want (T)hin or (P)an pizza?")
+
+
+
+            Do Until again = "n" Or "N" Or topcount = 5
+                Console.WriteLine("Which toppings would you like on your pizza. Please press a number")
+                index = Console.ReadLine
+                Console.WriteLine("Do you want anymore toppings? Press n if you would not like anymore.")
+                again = Console.ReadLine
+            Loop
+
+
+        Loop
+
+
+
+    End Sub
+
+End Module
